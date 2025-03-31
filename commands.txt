@@ -1,0 +1,46 @@
+Завдання 1
+Вибрати всі стовпчики з таблиці products:
+
+SELECT * FROM products;
+
+Вибрати лише name, phone з таблиці shippers:
+
+SELECT name, phone FROM shippers;
+
+
+Завдання 2
+Середнє, максимальне та мінімальне значення price з таблиці products:
+
+SELECT
+  AVG(price) AS Середнє,
+  MAX(price) AS Максимальне,
+  MIN(price) AS Мінімальне
+FROM products;
+
+
+Завдання 3
+Унікальні значення category_id та price, відсортовані за спаданням price, лише 10 результатів:
+
+SELECT DISTINCT category_id, price
+FROM products
+ORDER BY price DESC
+LIMIT 10;
+
+
+Завдання 4
+Кількість продуктів із ціною від 20 до 100:
+
+SELECT COUNT(*) AS Кількість
+FROM products
+WHERE price BETWEEN 20 AND 100;
+
+
+Завдання 5
+Кількість продуктів та середня ціна для кожного постачальника (supplier_id):
+
+SELECT
+  supplier_id,
+  COUNT(*) AS Кількість_продуктів,
+  AVG(price) AS Середня_ціна
+FROM products
+GROUP BY supplier_id;
